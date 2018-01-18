@@ -16,7 +16,7 @@
   <body>
 
     <!-- https://vuejs.org/v2/guide/index.html -->
-    <div id="app">
+    <div id="app" class="container">
       <!--
            TODO Show collection data. See js/script.js
            - Show collection Title
@@ -27,20 +27,20 @@
                - Display its "value" property in italic style
       -->
       <h1>{{ d.collection.title }}</h1>
-
-        <div class="card" v-for="item in d.collection.items">
-          <div class="card-body">
-            <ul>
-            <li class="card-text" v-for="elemento in item.data">
-              <b>{{elemento.prompt}}:</b> <i>{{ elemento.value}}</i>
-            </li>
+        <div class="row">
+          <div class="card col-md-4" v-for="item in d.collection.items">
+            <div class="card-body">
+                <h5 class="card-title" v-for="elemento in item.data" v-if="elemento.name == 'name'">{{elemento.value}}</h5>
+              <ul>
+              <li class="card-text" v-for="elemento in item.data" v-if="elemento.name != 'name'">
+                <b>{{elemento.prompt}}:</b> <i>{{ elemento.value}}</i>
+              </li>
+            </ul>
             <a v-bind:href="item.href" class="card-link">Ver en wikipedia</a>
-          </ul>
+          </div>
+          </div>
         </div>
-        </div>
-
-
-    </div>
+      </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
