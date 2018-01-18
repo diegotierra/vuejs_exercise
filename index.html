@@ -29,10 +29,17 @@
       <h1>{{ d.collection.title }}</h1>
         <div class="row">
           <div class="card col-md-4" v-for="item in d.collection.items">
+            <img
+            v-for="elemento in item.data"
+            v-if="elemento.name == 'image'"
+            class="card-img-top"
+            v-bind:src="elemento.value"
+            alt="Image of the film"/>
+
             <div class="card-body">
                 <h5 class="card-title" v-for="elemento in item.data" v-if="elemento.name == 'name'">{{elemento.value}}</h5>
               <ul>
-              <li class="card-text" v-for="elemento in item.data" v-if="elemento.name != 'name'">
+              <li class="card-text" v-for="elemento in item.data" v-if="elemento.name != 'name' && elemento.name != 'image'">
                 <b>{{elemento.prompt}}:</b> <i>{{ elemento.value}}</i>
               </li>
             </ul>
