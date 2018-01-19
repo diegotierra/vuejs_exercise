@@ -30,14 +30,14 @@
         <div class="row">
           <div class="card col-md-4" v-for="item in d.collection.items">
             <img
-            v-for="elemento in item.data"
-            v-if="elemento.name == 'image'"
             class="card-img-top"
-            v-bind:src="elemento.value"
+            v-bind:src="damepropiedad(item, 'image')"
             alt="Image of the film"/>
 
             <div class="card-body">
-                <h5 class="card-title" v-for="elemento in item.data" v-if="elemento.name == 'name'">{{elemento.value}}</h5>
+                <h5 class="card-title">{{damepropiedad(item,'name')}}</h5>
+
+                <button class="btn btn-primary btn-block" v-on:click="buttonclick">Show</button>
               <ul>
               <li class="card-text" v-for="elemento in item.data" v-if="elemento.name != 'name' && elemento.name != 'image'">
                 <b>{{elemento.prompt}}:</b> <i>{{ elemento.value}}</i>

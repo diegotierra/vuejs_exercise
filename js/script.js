@@ -47,5 +47,37 @@ var app = new Vue({
   el: '#app',
   data: {
     d: server_data
+  },
+  methods: {
+    damepropiedad: function(item, propiedad) {
+      var resultado;
+
+      for (var i = 0; i < item.data.length; i++)
+      {
+        if (item.data[i].name == propiedad)
+        {
+            resultado = item.data[i].value;
+        }
+      }
+      return resultado;
+    },
+    buttonclick: function(event) {
+      var boton = event.target;
+
+      if (boton.innerText == "Show")
+      {
+        boton.innerText = "Hide";
+      }
+      else
+      {
+        boton.innerText = "Show";
+      }
+
+    }
   }
 });
+
+//Version funcional
+
+//var filtrado = item.data.filter(function(e) {return e.name == propiedad})[0];
+//return filtrado ? filtrado.value : "";
