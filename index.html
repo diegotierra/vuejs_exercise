@@ -37,7 +37,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{damepropiedad(item,'name')}}</h5>
 
-                <button class="btn btn-primary btn-block" v-on:click="buttonclick">Show</button>
+                <button class="btn btn-primary btn-block" v-on:click="buttonclick">Hide</button>
               <ul>
               <li class="card-text" v-for="elemento in item.data" v-if="elemento.name != 'name' && elemento.name != 'image'">
                 <b>{{elemento.prompt}}:</b> <i>{{ elemento.value}}</i>

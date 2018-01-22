@@ -63,14 +63,17 @@ var app = new Vue({
     },
     buttonclick: function(event) {
       var boton = event.target;
+      var lista = boton.nextElementSibling;
 
-      if (boton.innerText == "Show")
+      if (boton.innerText == "Hide")
       {
-        boton.innerText = "Hide";
+        boton.innerText = "Show";
+        lista.style.display  = "none"
       }
       else
       {
-        boton.innerText = "Show";
+        boton.innerText = "Hide";
+        lista.style.display  = "block"
       }
 
     }
